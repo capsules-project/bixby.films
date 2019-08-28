@@ -1,0 +1,23 @@
+structure (Film) {
+  description (A film in the database)
+  property (title) {
+    type (Title)
+    min (Optional) max (One)
+  }
+  property (id) {
+    type (Id)
+    min (Optional) max (One)
+  }
+  property (director) {
+    type (Director)
+    min (Optional) max (One)
+  }
+  property (cast) {
+    type (Cast)
+    min (Optional) max (One)
+  }
+  property (synopsis) {
+    type (Synopsis)
+    min (Optional) max (One)
+  }
+}

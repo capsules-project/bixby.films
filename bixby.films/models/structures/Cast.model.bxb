@@ -1,0 +1,7 @@
+structure (Cast) {
+  description (The cast of a film)
+  property (actor) {
+    type (Actor)
+    min (Required) max (Many)
+  }
+}

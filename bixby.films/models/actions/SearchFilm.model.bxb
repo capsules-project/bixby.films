@@ -1,0 +1,11 @@
+action (SearchFilm) {
+  description (Search a film in the database)
+  type (Search)
+  collect {
+    input (searchTerm) {
+      type (SearchTerm)
+      min (Required) max (One)
+    }
+  }
+  output (Film)
+}
