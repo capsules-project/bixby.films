@@ -1,2 +1,2 @@
 # bixby.films
-![](assets/icon.png)
+![](assets/icon.png?raw=true)
