@@ -1,0 +1,22 @@
+result-view{
+	match: Film (this)
+
+  render {
+    if (size(this) > 1){
+      list-of (this){
+        has-details (true)
+        where-each (item) {
+          layout-macro (FilmsList){
+            param (this) {
+              expression (item)
+            }
+          }
+        }
+      }
+    } else-if(size(this)==1){
+      layout-match (this) {
+        mode (Details)
+      }
+    }
+  }
+}

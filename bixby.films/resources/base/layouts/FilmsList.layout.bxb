@@ -1,0 +1,28 @@
+layout-macro-def (FilmsList) {
+  params {
+    param (this) {
+      type (Film)
+      min (Required) max (One)
+    }
+  }
+  content {
+    image-card {
+      aspect-ratio (16:9)
+      title-area {
+        halign (Start)
+        slot1 {
+          text {
+            style (Title_S)
+            value ("#{value(this.title)}")
+          }
+        }
+        slot2 {
+          single-line{
+            text("")
+          }
+        }
+      }
+    }
+    
+  }
+}
