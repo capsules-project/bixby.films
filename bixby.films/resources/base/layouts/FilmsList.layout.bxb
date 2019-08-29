@@ -6,23 +6,14 @@ layout-macro-def (FilmsList) {
     }
   }
   content {
-    image-card {
-      aspect-ratio (16:9)
-      title-area {
-        halign (Start)
-        slot1 {
-          text {
-            style (Title_S)
-            value ("#{value(this.title)}")
-          }
-        }
-        slot2 {
-          single-line{
-            text("")
-          }
+    cell-card {
+      slot2 {
+        content {
+          order (PrimarySecondary)
+          primary ("#{value(this.title)}")
+          secondary ("#{value(this.year)}")
         }
       }
     }
-    
   }
 }
