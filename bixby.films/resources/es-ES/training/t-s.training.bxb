@@ -1,0 +1,5 @@
+train (t-suzzgu8stqlu9b3ha8pn0d7zh) {
+  utterance ("[g:SearchFilm] Busca la película (Sonrisas y lágrimas)[v:SearchTerm]")
+  plan (Y2BmkE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDIo4JINTE4uSM4hQEpJalMvAxMAIxAxAkpEBBKB8AA==)
+  last-modified (1567107346960)
+}
