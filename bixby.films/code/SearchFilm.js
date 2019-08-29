@@ -1,6 +1,7 @@
 var config = require('config') ;
 var http = require('http') ;
-var _getDetail = require('GetFilmDetail')
+var _getFilmDetail = require('GetFilmDetail') ;
+var console = require('console') ;
 ////// fail
 // var _api = require('./lib/API') ;
 // var console = require('console') ;
@@ -21,11 +22,8 @@ var _getDetail = require('GetFilmDetail')
 // };
 /////
 
-function filmId(filmData) {
-  this.id = filmData['id']
-}
-
-module.exports.function = function searchFilm(searchTerm) {
+function searchFilm(searchTerm) {
+    var films = []
     var searchTerms = searchTerm.split(' ') ;
     var query = encodeURIComponent(searchTerms[0]) ;
 
@@ -34,11 +32,26 @@ module.exports.function = function searchFilm(searchTerm) {
     }
     var filmsList = http.getUrl(config.get('apiSearch') + '/' + query, null, null);
     var filmsList = JSON.parse(filmsList)
-
+    console.log('searchFil, filmList: ', filmsList)
     for (var i=0 ; i < filmsList.length ; i++) {
-      var id = filmId(filmsList[i]) ;
-      var film = new _getDetail.GetFilmDetail(filmsList[i]['id']) ;
-      // film = new _film.Film(filmsData[i].title, filmsData[i].year, filmsData[i].id, filmsData[i].director, filmsData[i].cast, filmsData[i].synopsis) ;
+      var id = filmsList[i]['id'] ;
+      // error check
+      if (id.split('/').length > 1) {
+        console.log('TRue split: ', id)
+        id = id.split('/');
+        id = id[id.length - 1] ; 
+        id = id.split('film') ;
+        id = id[id.length - 1] ; 
+      }
+      console.log('searchFil, id: ',id)
+      var film = _getFilmDetail.getFilmDetail(id) ;
+      films.push(film)
     }
-    return film
-  }
+    console.log('final, films: ', films)
+    return films
+  } ;
+
+module.exports = {
+  function: searchFilm,
+  searchFilm: searchFilm
+};
