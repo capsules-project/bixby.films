@@ -1,11 +1,14 @@
 capsule {
-  id (playground.films)
+  id (capsules_project.films)
   version (0.1.0)
   format (3)
   targets {
     target (bixby-mobile-es-ES)
   }
   runtime-flags {
+    use-input-views-for-selection-list-detail
+    no-filtering-with-validation
+    modern-default-view-behavior
     concepts-inherit-super-type-features
     modern-prompt-rejection
     support-halt-effect-in-computed-inputs
