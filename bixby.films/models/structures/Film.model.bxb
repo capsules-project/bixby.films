@@ -2,7 +2,7 @@ structure (Film) {
   description (A film in the database)
   property (title) {
     type (Title)
-    min (Optional) max (One)
+    min (Required) max (One)
   }
   property (year) {
     type (Year)
@@ -10,7 +10,7 @@ structure (Film) {
   }
   property (id) {
     type (Id)
-    min (Optional) max (One)
+    min (Required) max (One)
   }
   property (director) {
     type (Director)
@@ -23,5 +23,9 @@ structure (Film) {
   property (synopsis) {
     type (Synopsis)
     min (Optional) max (One)
+  }
+    property (url) {
+    type (Url)
+    min (Required) max (One)
   }
 }

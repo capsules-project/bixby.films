@@ -1,0 +1,17 @@
+action (OpenWebsite) {
+  type(Constructor)
+  description (Open the website)
+  collect {
+    input (film) {
+      type (Film)
+      min (Required) max (One)
+    }
+  }
+  output (AppLaunchResult){
+    evaluate{
+      AppLaunchResult{
+        url: $expr(film.url)
+      }
+    }
+  }
+}

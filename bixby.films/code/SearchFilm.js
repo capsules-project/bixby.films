@@ -22,7 +22,7 @@ var console = require('console') ;
 // };
 /////
 
-function searchFilm(searchTerm) {
+function searchFilm(searchTerm, $vivContext) {
     var films = []
     var searchTerms = searchTerm.split(' ') ;
     var query = encodeURIComponent(searchTerms[0]) ;
@@ -44,7 +44,7 @@ function searchFilm(searchTerm) {
         id = id[id.length - 1] ; 
       }
       console.log('searchFil, id: ',id)
-      var film = _getFilmDetail.getFilmDetail(id) ;
+      var film = _getFilmDetail.getFilmDetail(id, $vivContext) ;
       films.push(film)
     }
     console.log('final, films: ', films)

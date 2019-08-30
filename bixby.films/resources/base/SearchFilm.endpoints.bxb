@@ -1,7 +1,7 @@
 endpoints {
   action-endpoints {
     action-endpoint (SearchFilm) {
-      accepted-inputs (searchTerm)
+      accepted-inputs (searchTerm, $vivContext)
       local-endpoint (SearchFilm.js)
     }
   }

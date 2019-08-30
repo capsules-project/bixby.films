@@ -1,0 +1,85 @@
+layout {
+  match: Film (Film)
+  mode (Details)
+
+  content {
+    section {
+      content {
+        cell-card {
+          slot1{
+          }
+          slot2 {
+            if (exists(Film.title) && exists(Film.year)){
+              content {
+                order (PrimarySecondary)
+                primary ("#{value(Film.title)}")
+                secondary ("#{value(Film.year)}")
+              }
+            }
+            else {
+              content {
+                order (PrimarySecondary)
+                primary ("#{value(Film.title)}")
+                secondary ("")
+              }
+            }
+          }
+          slot3 {
+            if (exists(Film.director)){
+              label {
+                value ("#{value(Film.director)}")
+              }
+            }
+          }
+        }
+      }
+    }
+    section {
+      content {
+        if (exists(Film.cast)){
+          paragraph {
+            style (Detail_M_Soft)
+            value ("#{value(Film.cast)}")
+          }
+        }
+      }
+    }
+    section {
+      content {
+        if (exists(Film.synopsis)){
+          paragraph {
+            style (Detail_M)
+            value ("#{value(Film.synopsis)}")
+          }
+        }
+      }
+    }
+    section{
+       // We validate is exists restaurant_url in OpenWebsite model  
+      content{
+        //  Button link to restaurant webpage
+        title-card{
+          title-area{ 
+            halign (Center)
+            slot1{
+              single-line{
+                text{
+                  value{
+                    template-macro (See_More_Punchout_Button)
+                  }
+                  style (Detail_M_Soft)
+                }
+              }
+            }
+          }
+          on-click{
+            intent{
+              goal: OpenWebsite
+              value-set: Film { $expr(Film) }
+            }
+          }
+        }
+      } 
+    }
+  }
+}

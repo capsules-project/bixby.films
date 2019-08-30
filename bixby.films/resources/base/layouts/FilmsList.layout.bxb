@@ -8,10 +8,19 @@ layout-macro-def (FilmsList) {
   content {
     cell-card {
       slot2 {
-        content {
-          order (PrimarySecondary)
-          primary ("#{value(this.title)}")
-          secondary ("#{value(this.year)}")
+        if (exists(this.title) && exists(this.year)) {
+          content {
+            order (PrimarySecondary)
+            primary ("#{value(this.title)}")
+            secondary ("#{value(this.year)}")
+          }
+        }
+        else {
+          content {
+            order (PrimarySecondary)
+            primary ("#{value(this.title)}")
+            secondary ("")
+          }
         }
       }
     }
