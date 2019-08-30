@@ -1,0 +1,6 @@
+enum (Quest) {
+  description (A quest for some information)
+  symbol (director)
+  symbol (year)
+  symbol (synopsis)
+}

@@ -1,0 +1,8 @@
+input-view {
+  match: SearchTerm (SearchTerm)
+
+  message {
+      template-macro (films_SearchFilm_SearchTermExistNo)
+  }
+
+}

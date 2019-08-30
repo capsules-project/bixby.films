@@ -5,6 +5,15 @@ action (SearchFilm) {
     input (searchTerm) {
       type (SearchTerm)
       min (Required) max (One)
+      // default-init {
+      //   intent {
+      //     goal: SearchTerm
+      //   }
+      // }
+    }
+    input (quest) {
+      type (Quest)
+      min (Optional) max (Many)
     }
   }
   output (Film)

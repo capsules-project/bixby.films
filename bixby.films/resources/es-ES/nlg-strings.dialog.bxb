@@ -1,0 +1,37 @@
+template-macro-def (films_SearchFilm_SearchTermExistNo) {
+  content {
+    choose (Random) {
+      template ("¿Sobre qué te gustaría buscar?") {
+        speech ("¿Sobre qué te gustaría buscar?")
+      }
+    }
+  }
+}
+
+template-macro-def (films_SearchFilm_SearchTermExistsYes_Multi) {
+  content {
+    template ("") {
+      speech ("")
+    }
+  }
+}
+
+template-macro-def (films_SearchFilm_DirectorQuestExistYes) {
+  params {
+    param (film) {
+      type (Film)
+      min (Required) max (One)
+    }
+    param (quest) {
+      type (Quest)
+      min (Required) max (One)
+    }
+  }
+  content {
+    choose (Random) {
+      template ("La película #{value(film.title)} fue dirigida por #{value(quest)}.") {
+        speech ("La película #{value(film.title)} fue dirigida por #{value(quest)}.")
+      }
+    }
+  }
+}
