@@ -1,0 +1,11 @@
+action (GetFilmDetail) {
+  description (__DESCRIPTION__)
+  type (Search)
+  collect {
+    input (film) {
+      type (Film)
+      min (Required) max (Many)
+    }
+  }
+  output (Film)
+}

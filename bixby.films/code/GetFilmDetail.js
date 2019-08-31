@@ -9,7 +9,8 @@ function getFilmDetail(id, $vivContext) {
   var film = http.getUrl(config.get('apiFilm') + '/' + id, null, null);
   console.log('getFilmDetail, film: ', film) ;
   film = JSON.parse(film) ;
-  parsedFilm = new _film.Film(film, id, $vivContext) ;
+  var parser = new _film.Film() ;
+  parsedFilm = parser.getFilmDetail(film, id, $vivContext) ;
   console.log('getFilmDetail, parsedFilm: ', parsedFilm)
   return parsedFilm
 } ;

@@ -11,10 +11,6 @@ action (SearchFilm) {
       //   }
       // }
     }
-    input (quest) {
-      type (Quest)
-      min (Optional) max (Many)
-    }
   }
   output (Film)
 }

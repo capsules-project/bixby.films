@@ -1,5 +1,6 @@
 train (t-wjnxzerg3ff6uo70sqoy8z9lf) {
-  utterance ("[g:SearchFilm,v:Quest:director] Quién dirigió la película (Parque jurásico)[v:SearchTerm]")
-  plan (Y2BhkE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDIo4JINTE4uSM8BKZHAoCSxNLS4hYEBIalEuAzMDIwMTkGQA0iAIAXBRAA==)
-  last-modified (1567169568357)
+  utterance ("[g:GetFilmDetail,v:Quest:director] Quién dirigió la película (Parque jurásico)[v:SearchTerm]")
+  plan (Y2BhkE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDCo4JN1TS0DyLqkliZk5DDI4VAWWphaXMCjikA1OTSxKzghJLcplYGZgZGACkgxAGgQhAC4KAA==)
+  enabled (false)
+  last-modified (1567201523052)
 }

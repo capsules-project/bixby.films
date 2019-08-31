@@ -1,6 +1,10 @@
-layout {
-  match: Film (Film)
-  mode (Details)
+layout-macro-def (GetFilmDetail) {
+  params {
+    param (film) {
+      type (Film)
+      min (Required) max (Many)
+    }
+  }
 
   content {
     section {
@@ -9,25 +13,25 @@ layout {
           slot1{
           }
           slot2 {
-            if (exists(Film.title) && exists(Film.year)){
+            if (exists(film.title) && exists(film.year)){
               content {
                 order (PrimarySecondary)
-                primary ("#{value(Film.title)}")
-                secondary ("#{value(Film.year)}")
+                primary ("#{value(film.title)}")
+                secondary ("#{value(film.year)}")
               }
             }
             else {
               content {
                 order (PrimarySecondary)
-                primary ("#{value(Film.title)}")
+                primary ("#{value(film.title)}")
                 secondary ("")
               }
             }
           }
           slot3 {
-            if (exists(Film.director)){
+            if (exists(film.director)){
               label {
-                value ("#{value(Film.director)}")
+                value ("#{value(film.director)}")
               }
             }
           }
@@ -36,20 +40,20 @@ layout {
     }
     section {
       content {
-        if (exists(Film.cast)){
+        if (exists(film.cast)){
           paragraph {
             style (Detail_M_Soft)
-            value ("#{value(Film.cast)}")
+            value ("#{value(film.cast)}")
           }
         }
       }
     }
     section {
       content {
-        if (exists(Film.synopsis)){
+        if (exists(film.synopsis)){
           paragraph {
             style (Detail_M)
-            value ("#{value(Film.synopsis)}")
+            value ("#{value(film.synopsis)}")
           }
         }
       }
@@ -75,7 +79,7 @@ layout {
           on-click{
             intent{
               goal: OpenWebsite
-              value-set: Film { $expr(Film) }
+              value-set: Film { $expr(film) }
             }
           }
         }

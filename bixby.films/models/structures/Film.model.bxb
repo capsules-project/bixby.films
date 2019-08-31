@@ -10,7 +10,7 @@ structure (Film) {
   }
   property (id) {
     type (Id)
-    min (Required) max (One)
+    min (Optional) max (One)
   }
   property (director) {
     type (Director)
@@ -26,6 +26,6 @@ structure (Film) {
   }
     property (url) {
     type (Url)
-    min (Required) max (One)
+    min (Optional) max (One)
   }
 }
