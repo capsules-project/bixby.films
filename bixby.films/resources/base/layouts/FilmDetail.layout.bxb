@@ -1,10 +1,6 @@
-layout-macro-def (GetFilmDetail) {
-  params {
-    param (film) {
-      type (Film)
-      min (Required) max (Many)
-    }
-  }
+layout {
+  match: Film (film)
+  mode (Details)
 
   content {
     section {
@@ -13,25 +9,25 @@ layout-macro-def (GetFilmDetail) {
           slot1{
           }
           slot2 {
-            if (exists(film.title) && exists(film.year)){
+            // if (exists(film.title) && exists(film.filmInfo.year)){
               content {
                 order (PrimarySecondary)
                 primary ("#{value(film.title)}")
                 secondary ("#{value(film.year)}")
               }
-            }
-            else {
-              content {
-                order (PrimarySecondary)
-                primary ("#{value(film.title)}")
-                secondary ("")
-              }
-            }
+            // }
+            // else {
+            //   content {
+            //     order (PrimarySecondary)
+            //     primary ("#{value(film.title)}")
+            //     secondary ("")
+            //   }
+            // }
           }
           slot3 {
-            if (exists(film.director)){
+            if (exists(film.filmInfo.director)){
               label {
-                value ("#{value(film.director)}")
+                value ("#{value(film.filmInfo.director)}")
               }
             }
           }
@@ -40,20 +36,20 @@ layout-macro-def (GetFilmDetail) {
     }
     section {
       content {
-        if (exists(film.cast)){
+        if (exists(film.filmInfo.cast)){
           paragraph {
             style (Detail_M_Soft)
-            value ("#{value(film.cast)}")
+            value ("#{value(film.filmInfo.cast)}")
           }
         }
       }
     }
     section {
       content {
-        if (exists(film.synopsis)){
+        if (exists(film.filmInfo.synopsis)){
           paragraph {
             style (Detail_M)
-            value ("#{value(film.synopsis)}")
+            value ("#{value(film.filmInfo.synopsis)}")
           }
         }
       }

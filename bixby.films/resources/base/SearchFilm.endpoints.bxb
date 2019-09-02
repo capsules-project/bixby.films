@@ -4,5 +4,9 @@ endpoints {
       accepted-inputs (searchTerm, $vivContext)
       local-endpoint (SearchFilm.js)
     }
+    action-endpoint (GetFilmDetail) {
+      accepted-inputs (film, $vivContext)
+      local-endpoint (GetFilmDetail.js)
+    }
   }
 }

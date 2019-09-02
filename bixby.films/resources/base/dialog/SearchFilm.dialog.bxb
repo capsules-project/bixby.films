@@ -1,17 +1,17 @@
-dialog (Result) {
-  match: Film (film) {
-    // match against the output of searchFilm --a Film-- and whose input has a Quest param
-    from-output: SearchFilm {
-      from-input: Quest (quest)
-    }
-  }
-  if (size(film) > 1) {
-    template-macro(films_SearchFilm_SearchTermExistsYes_Multi)
-  }
-  if (exists(quest) && quest == 'director') {
-    template-macro (films_SearchFilm_DirectorQuestExistYes) {
-      param (film) {expression (film)}
-      param (quest) {expression (quest)}
-    }
-  }
-}
+// dialog (Result) {
+//   match: Film (film) {
+//     // match against the output of searchFilm --a Film-- and whose input has a Quest param
+//     from-output: SearchFilm {
+//       from-input: Quest (quest)
+//     }
+//   }
+//   if (size(film) > 1) {
+//     template-macro(films_SearchFilm_SearchTermExistsYes_Multi)
+//   }
+//   if (exists(quest) && quest == 'director') {
+//     template-macro (films_SearchFilm_DirectorQuestExistYes) {
+//       param (film) {expression (film)}
+//       param (quest) {expression (quest)}
+//     }
+//   }
+// }

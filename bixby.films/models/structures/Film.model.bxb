@@ -6,26 +6,15 @@ structure (Film) {
   }
   property (year) {
     type (Year)
-    min (Optional) max (One)
+    min (Required) max (One)
   }
   property (id) {
     type (Id)
-    min (Optional) max (One)
+    min (Required) max (One)
   }
-  property (director) {
-    type (Director)
+  property (filmInfo) {
+    type (FilmInfo)
     min (Optional) max (One)
-  }
-  property (cast) {
-    type (Cast)
-    min (Optional) max (One)
-  }
-  property (synopsis) {
-    type (Synopsis)
-    min (Optional) max (One)
-  }
-    property (url) {
-    type (Url)
-    min (Optional) max (One)
+    lazy-source (GetFilmDetail)
   }
 }
