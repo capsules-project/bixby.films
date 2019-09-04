@@ -16,7 +16,7 @@ function API() {
   };
 
   this.getFilmDetails = function getFilmDetails(id) {
-      var api = http.postUrl(config.get('apiFilm') + '/' + id);
+      var api = http.getUrl(config.get('apiFilm') + '/' + id);
       api = JSON.parse(api);
       return api;
   };
