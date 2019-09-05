@@ -8,30 +8,99 @@ template-macro-def (films_SearchFilm_SearchTermExistNo) {
   }
 }
 
-template-macro-def (films_SearchFilm_SearchTermExistsYes_Multi) {
+template-macro-def (films_SearchFilm_SearchTermExistsYes_MultipleResult) {
+  params{
+    param (searchTerm) {
+      type (SearchTerm)
+      min (Required) max (Many)
+    }
+  }
   content {
-    template ("") {
-      speech ("")
+    template ("He encontrado las siguientes películas buscando #{value(searchTerm)}.") {
+      speech ("He encontrado las siguientes películas buscando #{value(searchTerm)}.")
     }
   }
 }
 
-template-macro-def (films_SearchFilm_DirectorQuestExistYes) {
+template-macro-def (films_SearchFilm_SearchTermExistYes_SimpleResult) {
+  params{
+    param (film) {
+      type (Film)
+      min (Required) max (One)
+    }
+  }
+  content {
+    template ("He encontrado #{value(film.title)} de #{value(film.filmInfo.director)}.") {
+      speech ("He encontrado #{value(film.title)} de #{value(film.filmInfo.director)}.")
+    }
+  }
+}
+
+template-macro-def (films_RequestData_Director_Multiple) {
   params {
     param (film) {
       type (Film)
       min (Required) max (One)
     }
-    param (quest) {
-      type (Quest)
+  }
+  content {
+    choose (Random) {
+      template ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.") {
+        speech ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.")
+      }
+    }
+  }
+}
+
+template-macro-def (films_RequestData_Director_Simple) {
+  params {
+    param (film) {
+      type (Film)
       min (Required) max (One)
     }
   }
   content {
     choose (Random) {
-      template ("La película #{value(film.title)} fue dirigida por #{value(quest)}.") {
-        speech ("La película #{value(film.title)} fue dirigida por #{value(quest)}.")
+      template ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.") {
+        speech ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.")
       }
+    }
+  }
+}
+
+template-macro-def (films_RequestData_Plot) {
+  params {
+    param (film) {
+      type (Film)
+      min (Required) max (One)
+    }
+  }
+  content {
+    choose (Random) {
+      template ("He encontrado esta película.") {
+        speech ("[#{value(film.filmInfo.synopsis)}]")
+      }
+    }
+  }
+}
+
+template-macro-def (films_RequestData_Year) {
+  params {
+    param (film) {
+      type (Film)
+      min (Required) max (One)
+    }
+  }
+  content {
+    if (exists(film.year)) {
+      choose (Random) {
+        template ("La película #{value(film.title)} se estrenó en #{value(film.year)}.") {
+          speech ("[#{value(film.filmInfo.synopsis)}]")
+        }
+      }
+    }
+    else {
+      template ("")
     }
   }
 }
