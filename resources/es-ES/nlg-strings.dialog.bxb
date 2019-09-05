@@ -36,7 +36,23 @@ template-macro-def (films_SearchFilm_SearchTermExistYes_SimpleResult) {
   }
 }
 
-template-macro-def (films_RequestData_Director_Multiple) {
+// template-macro-def (films_RequestData_Director_Multiple) {
+//   params {
+//     param (film) {
+//       type (Film)
+//       min (Required) max (One)
+//     }
+//   }
+//   content {
+//     choose (Random) {
+//       template ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.") {
+//         speech ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.")
+//       }
+//     }
+//   }
+// }
+
+template-macro-def (films_RequestData_Director) {
   params {
     param (film) {
       type (Film)
@@ -44,25 +60,18 @@ template-macro-def (films_RequestData_Director_Multiple) {
     }
   }
   content {
-    choose (Random) {
-      template ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.") {
-        speech ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.")
+    if (size(film.filmInfo.director) == 1) {
+      choose (Random) {
+        template ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.") {
+          speech ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.")
+        }
       }
     }
-  }
-}
-
-template-macro-def (films_RequestData_Director_Simple) {
-  params {
-    param (film) {
-      type (Film)
-      min (Required) max (One)
-    }
-  }
-  content {
-    choose (Random) {
-      template ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.") {
-        speech ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.")
+    else {
+      choose (Random) {
+        template ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.") {
+          speech ("La película #{value(film.title)} fue dirigida por #{value(film.filmInfo.director)}.")
+        }
       }
     }
   }

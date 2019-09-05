@@ -12,5 +12,6 @@ capsule {
     concepts-inherit-super-type-features
     modern-prompt-rejection
     support-halt-effect-in-computed-inputs
+    allow-dialogs-on-detail-pages
   }
 }

@@ -4,12 +4,11 @@ action (SearchFilm) {
   collect {
     input (searchTerm) {
       type (SearchTerm)
-      min (Required) max (One)
-      // default-init {
-      //   intent {
-      //     goal: SearchTerm
-      //   }
-      // }
+      min (Required) max (Many)
+    }
+    input (quest) {
+      type (Quest)
+      min (Optional) max (One)
     }
   }
   output (Film)

@@ -1,7 +1,7 @@
 var console = require('console') ;
 var _count = require('./Count') ;
 
-function FilmSum(api) {
+function FilmSum(api, quest) {
   var film = []
   for(var key in api) {
     film.push(api[key]) ;
@@ -48,6 +48,9 @@ function FilmSum(api) {
     this.id = id
     console.log('Id split: ', id) ;
   }
+  if (quest != undefined) { 
+      this.quest = quest
+  } ;
 }
 
 module.exports = {

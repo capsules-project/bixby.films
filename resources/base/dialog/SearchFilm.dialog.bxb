@@ -3,12 +3,30 @@ dialog (Result) {
     // match against the output of searchFilm --a Film-- and whose input has a searchTerm param
     from-output: SearchFilm {
       from-input: SearchTerm (searchTerm)
+      // from-input: Quest (quest)
     }
   }
   if (size(film) == 1) {
     if (size(searchTerm) > 0){
-      template-macro(films_SearchFilm_SearchTermExistYes_SimpleResult) {
-        param (film) {expression (film)}
+      if (exists(film.quest) && film.quest == 'director') {
+        template-macro(films_RequestData_Director) {
+          param (film) {expression (film)}
+        }
+      }
+      else-if (exists(film.quest) && film.quest == 'synopsis') {
+        template-macro(films_RequestData_Plot) {
+          param (film) {expression (film)}
+        }
+      }
+      else-if (exists(film.quest) && film.quest == 'year') {
+        template-macro(films_RequestData_Year) {
+          param (film) {expression (film)}
+        }
+      }
+      else{
+        template-macro(films_SearchFilm_SearchTermExistYes_SimpleResult) {
+          param (film) {expression (film)}
+        }
       }
     }
   }

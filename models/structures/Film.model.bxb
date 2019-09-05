@@ -17,4 +17,8 @@ structure (Film) {
     min (Optional) max (One)
     lazy-source (GetFilmDetail)
   }
+  property (quest) {
+    type (Quest)
+    min (Optional) max (One)
+  }
 }
