@@ -1,0 +1,5 @@
+train (t-9hmjndwuhnuwthxrvyb0p7fum) {
+  utterance ("[g:SearchFilm,v:Quest:year] En qué año se estrenó la película (Fama)[v:SearchTerm]")
+  plan (Y2BhkE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDIo4JINTE4uSM8BKZHAoCSxNLS4hYEBIalEuAzMDIwMTkGQA0iAIAXBRAA==)
+  last-modified (1567793017813)
+}
