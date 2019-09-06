@@ -104,7 +104,7 @@ template-macro-def (films_RequestData_Year) {
     if (exists(film.year)) {
       choose (Random) {
         template ("La película #{value(film.title)} se estrenó en #{value(film.year)}.") {
-          speech ("[#{value(film.filmInfo.synopsis)}]")
+          speech ("La película #{value(film.title)} se estrenó en #{value(film.year)}.")
         }
       }
     }
