@@ -5,6 +5,9 @@ capsule {
   targets {
     target (bixby-mobile-es-ES)
   }
+  capsule-imports {
+    import (viv.core) {as (core)}
+  }
   runtime-flags {
     use-input-views-for-selection-list-detail
     no-filtering-with-validation
