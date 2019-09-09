@@ -1,8 +1,25 @@
 input-view {
-  match: SearchTerm (SearchTerm)
+  match: SearchTerm (searchTerm)
 
   message {
       template-macro (films_SearchFilm_SearchTermExistNo)
+  }
+  
+  render {
+    form {
+      elements {
+        text-input {
+          id (searchTerm)
+          label (Términos de búsqueda)
+          type (SearchTerm)
+          value ("#{raw(searchTerm)}")
+        }
+      }
+      on-submit {
+        goal: SearchFilm
+        value: viv.core.FormElement(searchTerm)
+      }
+    }
   }
 
 }

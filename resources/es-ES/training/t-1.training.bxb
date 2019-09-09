@@ -1,0 +1,5 @@
+train (t-1cgqu8br0la9d36ei0hijuiln) {
+  utterance ("[g:SearchTerm:prompt] (Los crímenes de Oxford)[v:SearchTerm]")
+  plan (Y2BiUExOLCguzUktji8oys9KTS7RS8vMyS3WC05NLErOCEktyiVGCSMQMjDwADETEAPZAA==)
+  last-modified (1568015534837)
+}
