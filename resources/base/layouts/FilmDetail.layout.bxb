@@ -1,3 +1,8 @@
+              // image {
+              //   shape (Square)
+              //   url ("#{value(film.image)}") 
+              // }
+
 layout {
   match: Film (film)
   mode (Details)
@@ -5,32 +10,44 @@ layout {
   content {
     section {
       content {
-        cell-card {
-          slot1{
-          }
-          slot2 {
-            // if (exists(film.title) && exists(film.filmInfo.year)){
-              content {
-                order (PrimarySecondary)
-                primary ("#{value(film.title)}")
-                secondary ("#{value(film.year)}")
+        thumbnail-card {
+          title-area {
+            slot1{
+              text {
+                style (Title_S)
+                value ("#{value(film.title)}")
               }
-            // }
-            // else {
-            //   content {
-            //     order (PrimarySecondary)
-            //     primary ("#{value(film.title)}")
-            //     secondary ("")
-            //   }
-            // }
-          }
-          slot3 {
-            if (exists(film.filmInfo.director)){
-              label {
-                value ("#{value(film.filmInfo.director)}")
+            }
+            slot2 {
+              if (exists(film.filmInfo.director)) {
+                single-line {
+                  text {
+                    style (Detail_L)
+                    value ("#{value(film.filmInfo.director)}")
+                  }
+                }
+              }
+              else {
+                single-line {
+                  text {
+                    value ("")
+                  }
+                }
+              }
+            }
+            slot3 {
+              single-line {
+                text {
+                  style (Detail_M_Soft)
+                  value ("#{value(film.year)}")
+                }
               }
             }
           }
+          image-url {
+            template ("#{value(film.image)}")
+          }
+          image-position (Start)
         }
       }
     }

@@ -13,7 +13,7 @@ function FilmDetail(id, api, $vivContext) {
     this.synopsis = film[4] ;
     // accessing $vivContext to get the device
     var device = $vivContext.device ;
-    console.log('device: ', device) ;
+    // console.log('device: ', device) ;
     if (device == 'bixby-mobile') {
       this.url = 'https://m.filmaffinity.com/es/movie.php?id=' + id
     }

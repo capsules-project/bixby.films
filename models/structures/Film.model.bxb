@@ -1,5 +1,9 @@
 structure (Film) {
   description (A film in the database)
+  property (image) {
+    type (Url)
+    min (Required) max (One)
+  }
   property (title) {
     type (Title)
     min (Required) max (One)

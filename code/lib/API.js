@@ -18,7 +18,7 @@ function API() {
     for (var i=1 ; i < searchTermList.length ; i++) {
       query = query + '+' + encodeURIComponent(searchTermList[i])
     } ;
-    console.log('query: ', query) ;
+    // console.log('query: ', query) ;
     var api = http.getUrl(config.get('apiSearch') + '/' + query) ;
     api = JSON.parse(api);
     return api;

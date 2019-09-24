@@ -7,6 +7,12 @@ layout-macro-def (FilmsList) {
   }
   content {
     cell-card {
+      slot1 {
+        image {
+         shape (Circle)
+         url ("#{value(this.image)}")
+        }
+      }
       slot2 {
         if (exists(this.title) && exists(this.year)) {
           content {
