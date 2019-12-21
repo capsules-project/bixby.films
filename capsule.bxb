@@ -8,13 +8,17 @@ capsule {
   capsule-imports {
     import (viv.core) {as (core)}
   }
-  runtime-flags {
-    use-input-views-for-selection-list-detail
-    no-filtering-with-validation
-    modern-default-view-behavior
-    concepts-inherit-super-type-features
-    modern-prompt-rejection
-    support-halt-effect-in-computed-inputs
-    allow-dialogs-on-detail-pages
+  store-countries {
+    only {
+      allow (ES)
+    }
+  }
+  store-sections {
+    section (MoviesAndTV)
+  }
+  runtime-version (2) {
+    overrides {
+      allow-dialogs-on-detail-pages (true)
+    }
   }
 }
