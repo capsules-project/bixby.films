@@ -61,16 +61,7 @@ function API() {
     }
     return ftPeople
   };
-
-  this.getIMDbID = function getIMDbID(id) {
-    var query = http.makeQueryString({
-      "api_key": "fd54ccf1ef3a6b27f6f0f62a20a5cc96",
-    });
-    var api = http.getUrl(config.get('apiFilm') + '/' + id + '/external_ids' + '?' + query);
-    api = JSON.parse(api);
-    return api['imdb_id'];
-  }
-  };
+};
 
 module.exports = {
   API: API
