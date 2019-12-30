@@ -1,4 +1,3 @@
-var config = require('config') ;
 var http = require('http') ;
 var _api = require('./lib/API') ;
 var _film = require('./lib/FilmSum') ;
