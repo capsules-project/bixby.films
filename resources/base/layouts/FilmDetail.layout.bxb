@@ -66,32 +66,33 @@ layout {
         }
       }
     }
-    section{
-       // We validate is exists restaurant_url in OpenWebsite model  
-      content{
-        //  Button link to restaurant webpage
-        title-card{
-          title-area{ 
-            halign (Center)
-            slot1{
-              single-line{
-                text{
-                  value{
-                    template-macro (See_More_Punchout_Button)
+    if (exists(film.filmInfo.url)) { // We validate if exists an url  
+      section{
+        content{
+          //  Button link to IMDb film webpage
+          title-card{
+            title-area{ 
+              halign (Center)
+              slot1{
+                single-line{
+                  text{
+                    value{
+                      template-macro (See_More_Punchout_Button)
+                    }
+                    style (Detail_M_Soft)
                   }
-                  style (Detail_M_Soft)
                 }
               }
             }
-          }
-          on-click{
-            intent{
-              goal: OpenWebsite
-              value-set: Film { $expr(film) }
+            on-click{
+              intent{
+                goal: OpenWebsite
+                value-set: Film { $expr(film) }
+              }
             }
           }
-        }
-      } 
+        } 
+      }
     }
   }
 }
