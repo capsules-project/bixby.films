@@ -1,6 +1,6 @@
 action (DisambiguatePerson) {
   description (__DESCRIPTION__)
-  type (Fetch)
+  type (Search)
   collect {
     input (searchTerm) {
       type (SearchTerm)

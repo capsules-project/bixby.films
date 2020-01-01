@@ -9,7 +9,7 @@ endpoints {
       local-endpoint (GetFilmDetail.js)
     }
     action-endpoint (DiscoverFilms) {
-      accepted-inputs (genre)
+      accepted-inputs (searchTerm, person, genre)
       local-endpoint (DiscoverFilms.js)
     }
     action-endpoint (DisambiguatePerson) {

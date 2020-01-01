@@ -35,31 +35,13 @@ function API() {
     return api;
   };
 
-  this.getFeaturedPeople = function getFeaturedPeople(id) {
-    var ftPeople = {}
+  this.getCredits = function getCredits(id) {
     var query = http.makeQueryString({
       "api_key": "fd54ccf1ef3a6b27f6f0f62a20a5cc96",
     });
     var api = http.getUrl(config.get('apiFilm') + '/' + id + '/credits' + '?' + query);
     api = JSON.parse(api);
-  
-    // getting people
-    for (var i=0; i < api['crew'].length; i++) {
-      if (api['crew'][i]['job'] == 'Director') {
-        ftPeople.director = api['crew'][i]['name']
-        break
-      }
-    };
-
-    ftPeople.ftCast = []
-    for (var i=0; i < api['cast'].length; i++)  {
-      if (api['cast'][i]['order'] <= 10) {
-        ftPeople.ftCast.push(api['cast'][i]['name'])
-      } else {
-        break
-      }
-    }
-    return ftPeople
+    return api
   };
 
   this.getPerson = function getPerson(searchTerm) {
@@ -76,8 +58,8 @@ function API() {
   this.discoverMovie = function discoverMovie(query) {
     var api = http.getUrl(config.get('discover') + '/movie' + '?' + query);
     api = JSON.parse(api);
-    return api['results']
-  }
+    return api
+  };
 };
 
 module.exports = {

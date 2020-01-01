@@ -1,5 +1,9 @@
 structure (Person) {
   description (A person in the database)
+  property (id) {
+    type (Id)
+    min (Required) max (One)
+  }
   property (name) {
     type (Name)
     min (Required) max (One)

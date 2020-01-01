@@ -2,6 +2,7 @@ var _api = require('./API')
 var film = require('./FilmSum')
 
 function Person(person) {
+  this.id = person['id'];
   this.name = person['name'];
 
   // translate job

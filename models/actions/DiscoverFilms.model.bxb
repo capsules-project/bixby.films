@@ -3,20 +3,32 @@ action (DiscoverFilms) {
   type (Search)
   collect {
     // TBD
-    // input (searchTerm) {
-    //   type (SearchTerm)
-    //   min (Optional) max (One)
-
-    //   validate {
-    //     if (exists(searchTerm)) {
-    //       replan {
-    //         intent {
-    //           goal: DisambiguatePerson
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+    input (searchTerm) {
+      type (SearchTerm)
+      min (Optional) max (One)  
+      // validate {
+      //   if (exists(searchTerm)) {
+      //     replan {
+      //       intent {
+      //         goal: DisambiguatePerson
+      //         value: $expr(searchTerm)
+      //       }
+      //     }
+      //   }
+      // }
+    }
+    computed-input (person) {
+      type (Person)
+      min (Optional) max (One)
+      compute {
+        if (exists(searchTerm)) {
+          intent {
+            goal: DisambiguatePerson
+            value: $expr(searchTerm)
+          }
+        }
+      }
+    }
     input (genre) {
       type (Genre)
       min (Optional) max (One)

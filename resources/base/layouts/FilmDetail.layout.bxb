@@ -31,11 +31,15 @@ layout {
               }
             }
             slot3 {
-              single-line {
-                text {
-                  style (Detail_M_Soft)
-                  value ("#{value(film.year)}")
+              if (exists(film.year)) {
+                single-line {
+                  text {
+                    style (Detail_M_Soft)
+                    value ("#{value(film.year)}")
+                  }
                 }
+              } else {
+                single-line { text ("") }
               }
             }
           }

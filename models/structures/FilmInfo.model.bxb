@@ -1,9 +1,5 @@
 structure (FilmInfo) {
   description (Detail info of a film)
-  property (year) {
-    type (Year)
-    min (Optional) max (One)
-  }
   property (director) {
     type (Name)
     min (Optional) max (One)
