@@ -3,3 +3,8 @@ train (t-l3a12yjwt367k536611315bgr) {
   plan (Y2BiUExOLCguzUktji8oys9KTS7RS8vMyS3WC05NLErOCEktyiVGCSMQMjDwADETEAPZAA==)
   last-modified (1568015505769)
 }
+train (t-l5xhgfpyqroth25u8ahzd9c3b) {
+  utterance ("[g:DiscoverFilms] Busca películas de (acción)[v:Genre:action]")
+  plan (Y2BmkE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDCo4JF0yi5Pzy1KLQIqKGWRwqHJPzStKZWBiYARiBiDJyAACUD4A)
+  last-modified (1577813614682)
+}

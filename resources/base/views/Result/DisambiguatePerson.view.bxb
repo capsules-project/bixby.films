@@ -1,0 +1,19 @@
+// result-view{
+// 	match: Person (this)
+  
+//   message {
+//     template-macro (films_DisambiguatePerson_Init)
+//   }
+//   render {
+//     list-of (this){
+//       has-details (false)
+//       where-each (item) {
+//         layout-macro (PeopleList){
+//           param (this) {
+//             expression (item)
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

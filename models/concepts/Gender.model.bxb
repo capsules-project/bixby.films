@@ -1,0 +1,6 @@
+enum (Gender) {
+  description (The gender of a person)
+  symbol (Male)
+  symbol (Female)
+  symbol (Unknown)
+}

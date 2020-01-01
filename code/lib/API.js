@@ -20,7 +20,7 @@ function API() {
       "language": "es-ES"
     });
     // console.log('query: ', query) ;
-    var api = http.getUrl(config.get('apiSearch') + '?' + query) ;
+    var api = http.getUrl(config.get('apiSearch') + '/movie' + '?' + query) ;
     api = JSON.parse(api);
     return api['results']
   };
@@ -61,6 +61,23 @@ function API() {
     }
     return ftPeople
   };
+
+  this.getPerson = function getPerson(searchTerm) {
+    var query = http.makeQueryString({
+      "api_key": "fd54ccf1ef3a6b27f6f0f62a20a5cc96",
+      "query": searchTerm,
+      "language": "es-ES"
+    });
+    var api = http.getUrl(config.get('apiSearch') + '/person' + '?' + query);
+    api = JSON.parse(api);
+    return api['results'];
+  };
+
+  this.discoverMovie = function discoverMovie(query) {
+    var api = http.getUrl(config.get('discover') + '/movie' + '?' + query);
+    api = JSON.parse(api);
+    return api['results']
+  }
 };
 
 module.exports = {

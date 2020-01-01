@@ -12,17 +12,18 @@ function FilmDetail(film, $vivContext) {
   this.cast = ftPeople.ftCast.join(', ');
 
   this.synopsis = film['overview'] ;
-  this.imdbID = film['imdb_id']; 
-  // accessing $vivContext to get the device
-  var device = $vivContext.device ;
-  // console.log('device: ', device) ;
-  if (device == 'bixby-mobile') {
-    this.url = 'https://m.imdb.com/title/' + this.imdbID
+  if (film['imdb_id'] && film['imdb_id'] != undefined && film['imdb_id'] != "") {
+    this.imdbID = film['imdb_id'];
+    // accessing $vivContext to get the device
+    var device = $vivContext.device ;
+    // console.log('device: ', device) ;
+    if (device == 'bixby-mobile') {
+      this.url = 'https://m.imdb.com/title/' + this.imdbID
+    } else {
+      this.url = 'https://www.imdb.com/title/' + this.imdbID
+    }
   }
-  else {
-    this.url = 'https://www.imdb.com/title/' + this.imdbID
-  }
-  } ;
+}
 
   module.exports = {
     FilmDetail : FilmDetail

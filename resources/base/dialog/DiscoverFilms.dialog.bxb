@@ -1,0 +1,46 @@
+dialog (Result) {
+  match: Film (film) {
+    from-output: DiscoverFilms {
+      from-input: Genre (genre)
+    //   from-input: SearchTerm (searchTerm)
+    }
+  }
+  if (size(film) == 1) {
+    if (exists(genre)) { // && not exists(searchTerm)
+      template-macro (films_DiscoverFilms_GenreExists_Yes_SearchTermExists_No_SimpleResult) {
+        param (film) { expression (film) }
+      }
+    // } else-if (not exists(genre) && exists(searchTerm)) {
+    //     template-macro (films_DiscoverFilms_GenreExists_No_SearchTermExists_Yes_SimpleResult) {
+    //       param (film) { expression (film) }
+    //       param (searchTerm) { expression (searchTerm) }
+    //   }
+    // } else-if (exists(genre) && exists(searchTerm)) {
+    //     template-macro (films_DiscoverFilms_GenreExists_Yes_SearchTermExists_Yes_SimpleResult) {
+    //     param (film) { expression (film) }
+    //     param (genre) { expression (genre) }
+    //     param (searchTerm) { expression (searchTerm) }
+    //   }
+    } else-if (not exists(genre)) { //  && not exists(searchTerm)
+        template-macro (films_DiscoverFilms_GenreExists_No_SearchTermExists_No_SimpleResult) {
+          param (film) { expression (film) }
+      }
+    }
+  } else-if (size(film) > 1) {
+    if (exists(genre)) { // && not exists(searchTerm)
+      template-macro (films_DiscoverFilms_GenreExists_Yes_SearchTermExists_No_MultipleResult) {
+      }
+    // } else-if (not exists(genre) && exists(searchTerm)) {
+    //     template-macro (films_DiscoverFilms_GenreExists_No_SearchTermExists_Yes_MultipleResult) {
+    //       param (searchTerm) { expression (searchTerm) }
+    //   }
+    // } else-if (exists(genre) && exists(searchTerm)) {
+    //     template-macro (films_DiscoverFilms_GenreExists_Yes_SearchTermExists_Yes_MultipleResult) {
+    //     param (genre) { expression (genre) }
+    //     param (searchTerm) { expression (searchTerm) }
+    //   }
+    } else-if (not exists(genre)) { // && not exists(searchTerm)
+        template-macro (films_DiscoverFilms_GenreExists_No_SearchTermExists_No_MultipleResult)
+    }
+  }
+}

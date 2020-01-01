@@ -113,3 +113,75 @@ template-macro-def (films_RequestData_Year) {
     }
   }
 }
+
+// template-macro-def (films_DisambiguatePerson_Init) {
+//   content {
+//     choose (Random) {
+//       template ("He encontrado esto. ¿A cuál de ellos te refieres?") {
+//         speech ("He encontrado esto. ¿A cuál de ellos te refieres?")
+//       }
+//     }
+//   }
+// }
+
+// template-macro-def (films_DisambiguatePerson_None) {
+//   content {
+//     choose (Random) {
+//       template ("Lo siento. Pero no he encontrado nada sobre esa persona. ¿Por qué no pruebas con otra?") {
+//         speech ("Lo siento. Pero no he encontrado nada sobre esa persona. ¿Por qué no pruebas con otra?")
+//       }
+//     }
+//   }
+// }
+
+template-macro-def (films_DiscoverFilms_GenreExists_Yes_SearchTermExists_No_SimpleResult) {
+  params {
+    param (film) {
+      type (Film)
+      min (Required) max (One)
+    }
+  }
+  content {
+    choose (Random) {
+      template ("Buscando en ese género, he encontrado la película #{value(film.title)}.") {
+        speech ("Buscando en ese género, he encontrado la película #{value(film.title)}.")
+      }
+    }
+  }
+}
+
+template-macro-def (films_DiscoverFilms_GenreExists_No_SearchTermExists_No_SimpleResult) {
+  params {
+    param (film) {
+      type (Film)
+      min (Required) max (One)
+    }
+  }
+  content {
+    choose (Random) {
+      template ("Por aquí te dejo una sugerencia: #{value(film.title)}.") {
+        speech ("Por aquí te dejo una sugerencia: #{value(film.title)}.")
+      }
+    }
+  }
+}
+
+template-macro-def (films_DiscoverFilms_GenreExists_Yes_SearchTermExists_No_MultipleResult) {
+  content {
+    choose (Random) {
+      template ("Buscando en ese género, he dado con las siguientes.") {
+        speech ("Buscando en ese género, he dado con las siguientes.")
+      }
+    }
+  }
+}
+
+template-macro-def (films_DiscoverFilms_GenreExists_No_SearchTermExists_No_MultipleResult) {
+  content {
+    choose (Random) {
+      template ("Por aquí te dejo las películas más populares que he encontrado.") {
+        speech ("Por aquí te dejo las películas más populares que he encontrado.")
+      }
+    }
+  }
+}

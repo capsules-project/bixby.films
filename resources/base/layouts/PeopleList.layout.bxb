@@ -1,0 +1,51 @@
+layout-macro-def (PeopleList) {
+  params {
+    param (this) {
+      type (Person)
+      min (Required) max (One)
+    }
+  }
+  content {
+    thumbnail-card {
+          title-area {
+            slot1{
+              text {
+                style (Title_S)
+                value ("#{value(this.name)}")
+              }
+            }
+            slot2 {
+              single-line {
+                text {
+                  style (Detail_L)
+                  value ("#{value(this.job)}")
+                }
+              }
+            }
+            slot3 {
+              if (exists(this.ftFilms)) {
+                single-line {
+                  text {
+                    style (Detail_M_Soft)
+                    value ("#{value(this.ftFilms)}")
+                  }
+                }
+              } else {
+                single-line {
+                  text ("")
+                }
+              }
+              
+            }
+          }
+          image-url {
+            if (exists(this.image)) {
+              template ("#{value(this.image)}")
+            } else {
+              template ("")
+            }
+          }
+          image-position (Start)
+        }
+  }
+}

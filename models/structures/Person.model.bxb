@@ -1,0 +1,19 @@
+structure (Person) {
+  description (A person in the database)
+  property (name) {
+    type (Name)
+    min (Required) max (One)
+  }
+  property (job) {
+    type (Job)
+    min (Required) max(One)
+  }
+  property (image) {
+    type (Url)
+    min (Optional) max (One)
+  }
+  property (ftFilms) {
+    type (Film)
+    min (Optional) max (Many)
+  }
+}
