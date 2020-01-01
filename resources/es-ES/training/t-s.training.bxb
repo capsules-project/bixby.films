@@ -1,5 +1,5 @@
 train (t-suko92rb4hfuthd9da8rv1gbx) {
-  utterance ([g:SearchFilm] Busca películas)
-  plan (Y2BmkE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDIo4JINTE4uSM4hQEpJalMvAxMAIxAxAkpGBAUYDAA==)
-  last-modified (1568015425220)
+  utterance ([g:DiscoverFilms] Busca películas)
+  plan (Y2BikE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDCo4JF0yi5Pzy1KLQIqKGRiBkAGKgSQA)
+  last-modified (1577814808413)
 }
