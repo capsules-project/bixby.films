@@ -13,7 +13,7 @@ structure (Person) {
     min (Optional) max (One)
   }
   property (ftFilms) {
-    type (Film)
+    type (Title)
     min (Optional) max (Many)
   }
 }

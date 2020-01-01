@@ -6,8 +6,12 @@ function disambiguatePerson(searchTerm) {
   var api = new _api.API()
   api = api.getPerson(searchTerm)
   for (var i=0; i<api.length; i++) {
-    personInstance = new _person.Person(api)
-    person.push(personInstance)
+    if (api[i]['known_for_department'] == 'Directing' || api[i]['known_for_department'] == 'Acting' || api[i]['known_for_department'] == 'Production') {
+      personInstance = new _person.Person(api[i])
+      if (personInstance.pruning == undefined) {
+        person.push(personInstance)
+      }
+    }
   }
   return person
 }
