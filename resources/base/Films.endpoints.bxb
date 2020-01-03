@@ -8,5 +8,13 @@ endpoints {
       accepted-inputs (film, $vivContext)
       local-endpoint (GetFilmDetail.js)
     }
+    action-endpoint (DiscoverFilms) {
+      accepted-inputs (searchTerm, person, genre)
+      local-endpoint (DiscoverFilms.js)
+    }
+    action-endpoint (DisambiguatePerson) {
+      accepted-inputs (searchTerm)
+      local-endpoint (DisambiguatePerson.js)
+    }
   }
 }

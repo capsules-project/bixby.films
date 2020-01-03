@@ -1,0 +1,8 @@
+vocab (Genre) {
+  "action" {
+    acción
+  }
+  "horror" {
+    terror
+  }
+}

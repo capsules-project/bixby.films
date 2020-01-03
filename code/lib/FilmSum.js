@@ -2,8 +2,11 @@ var console = require('console') ;
 var _api = require('./API') ;
 
 function FilmSum(film, quest) {
-  this.year = film['release_date'].split('-')[0] ;
-  // console.log('year: ', this.year) ;
+
+  if (film['release_date']) {
+    this.year = film['release_date'].split('-')[0] ;
+    // console.log('year: ', this.year) ;
+  }
   
   this.title = film['title'] ;
   // console.log('title: ', this.title) ;

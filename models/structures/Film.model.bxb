@@ -10,7 +10,7 @@ structure (Film) {
   }
   property (year) {
     type (Year)
-    min (Required) max (One)
+    min (Optional) max (One)
   }
   property (id) {
     type (Id)
