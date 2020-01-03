@@ -22,43 +22,45 @@ function discoverFilms (searchTerm, person, genre) {
     var genreID = _genreTrans.genreTrans(genre)
     query['with_genres'] = genreID
   }
+
   f_query = http.makeQueryString(query)
   api_response = api.discoverMovie(f_query)
   api_results = api_response['results']
   
   if (person != undefined) {
     for (var j=2; j<=api_response['total_pages']; j++) {
-      query['page'] = j
-      f_query = http.makeQueryString(query)
-      new_results = api.discoverMovie(f_query)['results']
-      for (var i=0; j<=new_results.length; j++) {
-        api_results.push(new_results[i])
+      if (api_results.length<20) {
+        query['page'] = j
+        f_query = http.makeQueryString(query)
+        api_results += api.discoverMovie(f_query)['results']
+      } else {
+        break
       }
     }
   }
 
   var films = []
   for (var i=0; i<api_results.length; i++) {
-    if (person != undefined && api_results[i]['id']) {
-      var credits = api.getCredits(api_results[i]['id'])
-      for (var i=0; i < credits['crew'].length; i++) {
-        if (credits['crew'][i]['name'] == person.name && (credits['crew'][i]['department'] == 'Directing' || credits['crew'][i]['department'] == 'Production')) {
-          var film = new _film.FilmSum(api_results[i])
-          films.push(film)
-          break
-        }
-      };
-      for (var i=0; i < credits['cast'].length; i++) {
-        if (credits['cast'][i]['name'] == person.name) {
-          var film = new _film.FilmSum(api_results[i])
-          films.push(film)
-          break
-        }
-      };
-    } else {
+    // if (person != undefined && api_results[i]['id']) {
+    //   var credits = api.getCredits(api_results[i]['id'])
+    //   for (var i=0; i < credits['crew'].length; i++) {
+    //     if (credits['crew'][i]['name'] == person.name && (credits['crew'][i]['department'] == 'Directing' || credits['crew'][i]['department'] == 'Production')) {
+    //       var film = new _film.FilmSum(api_results[i])
+    //       films.push(film)
+    //       break
+    //     }
+    //   };
+    //   for (var i=0; i<credits['cast'].length; i++) {
+    //     if (credits['cast'][i]['name'] == person.name) {
+    //       var film = new _film.FilmSum(api_results[i])
+    //       films.push(film)
+    //       break
+    //     }
+    //   };
+    // } else {
       var film = new _film.FilmSum(api_results[i])
       films.push(film)
-    }
+    // }
   }
   return films
 }
