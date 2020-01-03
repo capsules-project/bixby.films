@@ -1,0 +1,5 @@
+train (t-bz6j987627xek0k1klordi9a4) {
+  utterance ("[g:DiscoverFilms] Busca películas de (Steven Spielberg)[v:SearchTerm]")
+  plan (Y2BmkE5OLCguzUktji8oys9KTS7RS8vMyS3WcwOSDCo4JF0yi5Pzy1KLQIqKGRRxqApOTSxKzghJLcplYGJgBGIGIMnIAAJQPgA=)
+  last-modified (1577897641181)
+}
